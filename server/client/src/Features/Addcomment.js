@@ -1,5 +1,6 @@
 import React from "react";
 import { useState, useEffect } from "react";
+import Comment from "../Components/Comment";
 
 import Loadingcomp from "../Screens/LoadingComp";
 const AddComment = ({ blogid, UserInfo }) => {
@@ -23,11 +24,7 @@ const AddComment = ({ blogid, UserInfo }) => {
     setcomment("");
     if (data) {
       setAllcomments((prev)=>[data,...prev]);
-      // console.log(`Comment is: `+data.commentedblogs);
-      // setTimeout(() => {
-      //   commentstate === true ? setcommentstate(false) : setcommentstate(true);
-      //   setCommentload(false);
-      // }, 2000);
+
     }
   };
   useEffect(() => {
@@ -97,20 +94,21 @@ const AddComment = ({ blogid, UserInfo }) => {
               </form>
             </div>
           ) : (
-            <div>Usr not signin</div>
+            <div>User not signin</div>
           )}
         </div>
         <div className=" imgcontsp col-md-5 col-lg-5 col-10 blog colcomp2 mx-auto ">
-          <h1 className="mx-auto text-center">Comments</h1>
+          <h1 className="mx-auto text-center bk" >Comments</h1>
           <div className=" imgcontsp row blog colcomp mx-auto comcomp">
             {Allcomments.length >= 1 ? (
               Allcomments.map((e) => (
-                <div className="commentwrap row" key={e._id}>
-                  <div className=" col-md-12 col-lg-12 col-12">
-                    <h5 className="compd">{e.comment}</h5>
-                    <h6 className="compd">By: {e.username}</h6>
-                  </div>
-                </div>
+                 <Comment
+                      username={e.username}
+                      comment={e.comment}
+                      key={e._id*10}
+                      
+                 />
+       
               ))
             ) : (
               <div className="commentwrap">

@@ -55,6 +55,7 @@ background-image: linear-gradient(315deg,  #009ffd 74%,#2a2a72 0%); */
 }
 /*  to center content with high priority*/
 .center_imp {
+  margin: 0.4rem !important;
   display: flex !important;
   justify-content: center !important;
   align-items: center !important;
@@ -336,8 +337,8 @@ img {
 }
 
 .blog img {
-  width: 50rem;
-  height: 20rem;
+  width: 38rem;
+  height: 16rem;
   transition: 2s all ease-in-out;
   border-radius: 5rem;
   background-color: #2a2a72;
@@ -727,7 +728,10 @@ Link {
 }
 
 
-
+.spmessage{
+  border-radius: 0.4rem !important;
+  color: #fff;
+}
 ::-webkit-scrollbar-thumb{
   color: #28288f;
  background-image: linear-gradient(
