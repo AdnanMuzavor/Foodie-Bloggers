@@ -1,0 +1,4 @@
+export const SAVE_BLOG_REQUEST="SAVE_BLOG_REQUEST";
+export const BLOG_UNSAVED="BLOG_UNSAVED";
+export const BLOG_SAVED="BLOG_SAVED";
+export const SAVE_BLOG_FAIL="SAVE_BLOG_FAIL";
