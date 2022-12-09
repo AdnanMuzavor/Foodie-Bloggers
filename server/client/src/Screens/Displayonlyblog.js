@@ -118,6 +118,7 @@ const Onlyblog = (props) => {
         <div className="container gallery mt-3 ">
           <div className="row  mx-auto d-flex justify-content-center mt-2 mb-2">
             <div className="col-md-10 col-lg-10 col-12 ">
+              {/*Special features for authenticated user onlu*/}
               {UserInfo ? (
                 <>
                   <AddtoSaves
