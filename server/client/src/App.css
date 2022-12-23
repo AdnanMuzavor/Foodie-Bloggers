@@ -60,7 +60,10 @@ background-image: linear-gradient(315deg,  #009ffd 74%,#2a2a72 0%); */
   justify-content: center !important;
   align-items: center !important;
   flex-direction: column !important;
+
+
 }
+
 .loginspecial{
   background-image: linear-gradient(
     132.6deg,

@@ -124,7 +124,8 @@ const Signup = (props) => {
               <Notifier status={status} message={message} />
             </div>
           </div>
-          <div className="container center_imp ">
+          <section className="center_imp">
+          <div className="center_imp container  ">
             <div className="row mx-auto mb-4 alligncenter mt-4 me-1 ms-1 ">
               {/* For form filling */}
 
@@ -268,7 +269,7 @@ const Signup = (props) => {
                 </div>
               </div>
             </div>
-          </div>
+          </div></section>
         </>
       )}
     </>

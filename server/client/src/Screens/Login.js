@@ -4,7 +4,7 @@ import { Link, useHistory } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import siginin from "../Images/signin.jpg";
 
-import { Signin} from "../actions/UserActions";
+import { Signin } from "../actions/UserActions";
 import Notifier from "../Components/Notifier";
 
 const Login = () => {
@@ -23,8 +23,8 @@ const Login = () => {
   //Defining state for email and password separately so that change function can be defined on spot
   const [email, setemail] = useState("");
   const [password, setpassword] = useState("");
-  const [status,setstatus]=useState("")
-  const [message,setmessage]=useState("");
+  const [status, setstatus] = useState("");
+  const [message, setmessage] = useState("");
   //Defining a function to send datab to route "/login"
 
   const Logindata = async (e) => {
@@ -32,21 +32,19 @@ const Login = () => {
 
     dispatch(Signin(email, password));
 
-    if (error && !UserInfo) {
-     // alert("Invalid Cridentials!");
-      var  noti=document.querySelector(".notifier");
+    if ((error && !UserInfo)||UserInfo.Message) {
+      // alert("Invalid Cridentials!");
+      var noti = document.querySelector(".notifier");
       setstatus("Failed");
       setmessage("Inavlid Cridentials");
-      noti.style.display="block"; 
-      noti.style.visibility="visible";
-      noti.style.opacity="0.9";
+      noti.style.display = "block";
+      noti.style.visibility = "visible";
+      noti.style.opacity = "0.9";
       setTimeout(() => {
-        noti.style.display="none"; 
-        noti.style.visibility="hide";
-        noti.style.opacity="0.6";
+        noti.style.display = "none";
+        noti.style.visibility = "hide";
+        noti.style.opacity = "0.6";
       }, 2000);
-   
-   
     }
   };
   const ToTop = () => {
@@ -56,42 +54,47 @@ const Login = () => {
     });
   };
   useEffect(() => {
-   
-
-    if (UserInfo !== undefined && UserInfo !== null) {
+    if (UserInfo !== undefined && UserInfo !== null && !UserInfo.Message) {
       ToTop();
       setstatus("Success");
-      setmessage("User logged in")
-      var  noti=document.querySelector(".notifier");
-      noti.style.display="block"; 
-      noti.style.visibility="visible";
-      noti.style.opacity="1";
+      setmessage("User logged in");
+      var noti = document.querySelector(".notifier");
+      noti.style.display = "block";
+      noti.style.visibility = "visible";
+      noti.style.opacity = "1";
       setTimeout(() => {
-        noti.style.display="none"; 
-        noti.style.visibility="hide";
-        noti.style.opacity="0.6";
+        noti.style.display = "none";
+        noti.style.visibility = "hide";
+        noti.style.opacity = "0.6";
       }, 2000);
-   
+
       setTimeout(() => {
-       history.push("/");
-        
+        history.push("/");
       }, 2500);
-     
+      if (UserInfo.Message) {
+        setstatus("Failed");
+        setmessage("User Not logged in");
+        var noti = document.querySelector(".notifier");
+        noti.style.display = "block";
+        noti.style.visibility = "visible";
+        noti.style.opacity = "1";
+        setTimeout(() => {
+          noti.style.display = "none";
+          noti.style.visibility = "hide";
+          noti.style.opacity = "0.6";
+        }, 2000);
+      }
     }
   }, [UserInfo]);
   return (
     <>
-    <div className="notifycontainer">
-    <div className="notifier container">
-      
-      <Notifier
-          status={status}
-          message={message}
-      />
-    </div> 
-    </div>
-   
-      <div className="container center_imp">
+      <div className="notifycontainer">
+        <div className="notifier container">
+          <Notifier status={status} message={message} />
+        </div>
+      </div>
+      <section className="center_imp">
+      <div className="center_imp container">
         <div className="row mx-auto mb-4 alligncenter mt-4 me-2 ms-2  ">
           {/* for image            */}
           <div className="inner-cont  col-10 col-md-6 col-lg-6 col mt-3 mb-3 ">
@@ -165,7 +168,7 @@ const Login = () => {
             </div>
           </div>
         </div>
-      </div>
+      </div></section>
     </>
   );
 };
