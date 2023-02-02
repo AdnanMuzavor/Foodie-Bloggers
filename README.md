@@ -3,6 +3,12 @@
 
 It's a blogging website where you can perform CRUD operations i.e CREATE-BLOG, UPDATE-BLOG, READ-BLOG AND DELETE BLOG such that it belongs to you. Also you can see other users blogs, can access about page after login and authentication, access contact page with all fields except message being prefilled such that you are registered and logged in user. The website also offers a good home page UI.
 
+## Tech stacks used
+# Frontend :  React.js, HTML, CSS, Bootstrap
+# Backend  :  Node.js, Express.js
+# Database :  MongoDB
+# Tools    :  Postman, VS Code
+
 ## Key Features
 
 It is a blogging/content based website where user can:
